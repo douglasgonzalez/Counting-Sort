@@ -58,7 +58,7 @@ public class CountingSort {
         }
 
         /*
-         * Copia o vetor para o vetor
+         * Copia do vetor resposta para o vetor principal
          */
         for (int i = 0; i < vetor.length; i++) {
             vetor[i] = resposta[i];
