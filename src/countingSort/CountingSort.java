@@ -55,6 +55,17 @@ public class CountingSort {
          */
         for (int i = 0; i < vetor.length; i++) {
             resposta[aux[vetor[i]]-- - 1] = vetor[i];
+            /*
+             * O que acontece nesta linha é o seguinte:
+             *      resposta[aux[vetor[i]]-- - 1] = vetor[i];
+             *  - o valor de vetor[i] é utilizado como índice do vetor aux
+             *  - o valor do aux[vetor[i]] -1 é utilizado como índice do vetor resposta
+             *  - atribuí-se o valor de vetor[i] ao vetor resposta, na posição calculada no passo anterior
+             *  - o valor de aux[vetor[i]] é decrementado em uma unidade.
+             * 
+             * Quando ocorre aux[vetor[i]]--, significa que primeiro você utiliza o valor do aux nesta posição e depois ele é decrementado em uma unidade. 
+             * Portanto, o decremento (--) será a última coisa a ser feita.
+             */
         }
 
         /*
