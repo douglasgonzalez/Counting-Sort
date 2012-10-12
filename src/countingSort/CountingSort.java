@@ -26,34 +26,48 @@ public class CountingSort {
 
     public static void CountingSort(int vetor[]) { //recebe o vetor
         // Chama o método que acha o índice do maior valor
+        // n (pois a função abaixo tem complexidade de O(n))
         int maior = getIndiceDoMaiorValor(vetor);
 
         // Cria um vetor auxiliar com tamanho do maior elemento do vetor + 1
+        // 1
         int[] aux = new int[vetor[maior] + 1];
 
         // Cria um vetor resposta com o mesmo tamanho do vetor
+        // 1
         int[] resposta = new int[vetor.length];
 
         // Coloca "0" em cada elemento do vetor aux
+        // k (pois depende do valor de k)
         for (int i = 0; i < aux.length; i++) {
+        // k.1
             aux[i] = 0;
         }
+
         // Percorre o vetor e cada valor encontrado ele incrementa 1 no índice correspondente no aux
+        // n
         for (int i = 0; i < vetor.length; i++) {
+        // n.1
             aux[vetor[i]] += 1;
         }
+
         // No vetor aux
         // Soma o valor do índice 1 com o valor do índice anterior, 
         // o valor do índice 2 com o anterior até o final do aux
+        // k
         for (int i = 1; i < aux.length; i++) {
+        // k.1
             aux[i] += aux[i - 1];
         }
+
         /*
          * Usa o valor do vetor com índice no aux,
          * pegando o valor deste índice e usando índice -1 para inserir o
          * valor do vetor na exata posição no resposta, depois decrementa aux[i]
          */
+        // n
         for (int i = 0; i < vetor.length; i++) {
+        // n.1
             resposta[aux[vetor[i]]-- - 1] = vetor[i];
             /*
              * O que acontece nesta linha é o seguinte:
@@ -71,7 +85,9 @@ public class CountingSort {
         /*
          * Copia do vetor resposta para o vetor principal
          */
+        // n
         for (int i = 0; i < vetor.length; i++) {
+        // n
             vetor[i] = resposta[i];
         }
 
